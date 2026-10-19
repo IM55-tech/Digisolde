@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>digisolde</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#084838">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<aside id="app-drawer">
+  <div class="drawer-header">
+    <img src="icon-192.png" alt="digisolde">
+    <div>
+      <h1 class="marque"><span class="digi">digi</span><span class="solde">solde</span></h1>
+      <p id="drawerBoutique"></p>
+    </div>
+  </div>
+  <nav class="drawer-nav">
+    <a href="#" data-p="accueil" onclick="go('accueil');return false;">📊 Accueil</a>
+    <a href="#" data-p="service" onclick="go('service');return false;">🔄 Service (ouverture / passation)</a>
+    <a href="#" data-p="transferts" onclick="go('transferts');return false;">💱 Transferts entre comptes</a>
+    <a href="#" data-p="cash" onclick="go('cash');return false;">💵 Cash et dépenses</a>
+    <a href="#" data-p="stats" onclick="go('stats');return false;">📈 Statistiques</a>
+    <a href="#" data-p="rapports" onclick="go('rapports');return false;">📁 Rapports et historique</a>
+    <a href="#" data-p="params" onclick="go('params');return false;">⚙️ Paramètres</a>
+  </nav>
+  <div class="drawer-footer">digisolde · V4</div>
+</aside>
+<header id="topbar">
+  <div class="topbar-left">
+    <button class="icon-button" onclick="toggleMenu()">☰</button>
+    <span class="topbar-title" id="topTitle"></span>
+  </div>
+  <div class="topbar-right">
+    <span class="boutique-select" id="topBoutique"></span>
+  </div>
+</header>
+<main id="pages-container"><div id="app"></div></main>
+<div id="notification"></div>
+<script src="app.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol.indexOf("http") === 0) {
+  navigator.serviceWorker.register("sw.js").catch(function () {});
+}
+</script>
+</body>
+</html>
